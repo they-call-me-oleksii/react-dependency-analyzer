@@ -1,6 +1,7 @@
 {
-  "name": "react-dependency-analyser",
-  "displayName": "react-dependency-analyser",
+  "name": "react-dependency-analyzer",
+  "displayName": "React dependency analyzer",
+  "icon": "./assets/marketplace-icon.png",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -14,10 +15,32 @@
   "contributes": {
     "commands": [
       {
-        "command": "react-dependency-analyser.helloWorld",
+        "command": "react-dependency-analyzer.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "react-dependency-analyzer.parseFile",
+        "title": "Parse File"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "react-dependency-analyzer-view",
+          "title": "React dependency analyzer",
+          "icon": "assets/sidebar-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "react-dependency-analyzer-view": [
+        {
+          "type": "webview",
+          "id": "react-dependency-analyzer-center-panel",
+          "name": "React dependency analyzer"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -28,14 +51,19 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.85.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
+    "@types/vscode": "^1.85.0",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
     "@vscode/test-cli": "^0.0.4",
-    "@vscode/test-electron": "^2.3.8"
+    "@vscode/test-electron": "^2.3.8",
+    "@types/babel__traverse": "^7.20.5",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.23.9",
+    "@babel/traverse": "^7.23.9"
   }
 }
