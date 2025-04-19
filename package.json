@@ -8,35 +8,31 @@
     "vscode": "^1.85.0"
   },
   "categories": [
-    "Other"
+    "Visualization"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "react-dependency-analyzer.helloWorld",
-        "title": "Hello World"
-      },
-      {
-        "command": "react-dependency-analyzer.parseFile",
-        "title": "Parse File"
+        "command": "react-dependency-analyzer.showPanel",
+        "title": "Show React Dependency Analyzer"
       }
     ],
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "react-dependency-analyzer-view",
+          "id": "react-dependency-analyzer-sidebar_icon",
           "title": "React dependency analyzer",
           "icon": "assets/sidebar-icon.svg"
         }
       ]
     },
     "views": {
-      "react-dependency-analyzer-view": [
+      "react-dependency-analyzer-sidebar_icon": [
         {
           "type": "webview",
-          "id": "react-dependency-analyzer-center-panel",
+          "id": "react-dependency-analyzer-sidebar_panel",
           "name": "React dependency analyzer"
         }
       ]
@@ -46,6 +42,7 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
+    "watch:webview": "tsc -watch -p ./src/webview/tsconfig.webview.json",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "vscode-test"
